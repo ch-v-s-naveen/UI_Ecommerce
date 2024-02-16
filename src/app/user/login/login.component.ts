@@ -4,18 +4,18 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router: Router) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  login() {
+    this.router.navigateByUrl('l');
   }
 
-  login(){
-
-    this.router.navigateByUrl("l");
+  signup() {
+    this.router.navigateByUrl('/signup');
   }
-
 }

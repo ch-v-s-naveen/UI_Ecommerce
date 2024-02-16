@@ -1,39 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="">ECommerce</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-light bg-black">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">ECommerce</a>
+
+    <form class="d-flex col-6 leftmove">
+      <input
+        class="form-control"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success" hidden (click)="searchDummy()">
+        Search
       </button>
-  
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" (click)="searchDummy()" >Search</button>
-      </form>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" [routerLink]="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Login
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="">Action</a></li>
-              <li><a class="dropdown-item" [routerLink]="">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" [routerLink]="">Something else here</a></li>
-            </ul>
-          </li>
-         
-        </ul>
-       
-      </div>
-    </div>
-  </nav>
-  <div class="mainSection">
-    
-  <router-outlet></router-outlet>
-  
+    </form>
   </div>
+
+  <div class="dropdown leftmovediv">
+    <select (change)="seleChange($event)">
+      <option value="1">{{ title }}</option>
+      <option value="login" *ngIf="!visibleLogin">Login</option>
+      <option value="profile">My Profile</option>
+      <option value="wishlist">WishList</option>
+      <option value="Orders">Orders</option>
+      <option value="logout" *ngIf="visibleLogin">Logout</option>
+    </select>
+  </div>
+  <a class="navbar-brand" [routerLink]="">Cart</a>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>

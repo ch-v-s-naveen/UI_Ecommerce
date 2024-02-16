@@ -1,5 +1,15 @@
-.mainSection{
-    height: 500px; 
- }
- 
- 
+.navbar-brand {
+  color: white;
+}
+
+.leftmove {
+  position: absolute;
+  left: 150px;
+}
+
+.leftmovediv {
+  position: absolute;
+  left: 850px;
+  height: 20px;
+  display: inline-block;
+}
